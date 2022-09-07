@@ -1,0 +1,18 @@
+body {
+    background-image: url(/static/image/bg.jpg);
+    height: auto;
+}
+.menu-link {
+    text-align: center;
+}
+.user {
+    color: azure;
+    text-align: center;
+    margin: auto;
+}
+.menu_link {
+    text-decoration: none;
+    color: rgb(243, 242, 241);
+    margin-left: 20px;
+    font-size: 16px;
+}

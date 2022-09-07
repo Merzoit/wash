@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static '/css/monitor_blank.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="box">
+    <div class="form-box">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <b>Смена: {{api.success_date}}</b><br>
+                Моек в работе: {{api.not_ready_counter}}<br>
+                Всего моек: {{api.wash_counter}}<br>
+                <b><p style="color: green;">{{api.wash_money}}</p></b>
+              </div>
+              <div class="col-sm">
+                Расчётная прибыль: {{api.admin_money_full}}</br>
+                ЗП Администратора: {{api.admin_money}}
+              </div>
+              <div class="col-sm">
+              <form action="" method="post" >{% csrf_token %}
+              <em>Формат: ДД.ММ.ГГГГ</em>
+              {{form.date}}
+              <button type="submit" class="btn btn-dark">Открыть смену</button>
+              <form>
+            </div>
+            </div>
+          </div>
+    </div>
+    <div calss="list-box">
+        <div class="tabble">
+        <table class="table table-list list-table">
+            <thead>
+              <tr>
+                <th scope="col">Мойщик</th>
+                <th scope="col">ГРЗ</th>
+                <th scope="col">Тип оплаты</th>
+                <th scope="col">Стоимость</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in api.list %}
+              <tr>
+                <td>{{i.wash_man}}</td>
+                <td>{{i.grz}}</td>
+                <td>{{i.pay_type}}</td>
+                <td>{{i.price}}</td>
+                {% if not i.done_clean %}
+                <td><a type="button" href="{% url 'update_blank' i.id %}" class="btn btn-success btnnn">Изменить</button></td>
+                <td><a type="button" href="{% url 'delete_blank' i.id %}" class="btn btn-danger btnnn"><b>X</b></button></td>
+                {% else %}
+                <td><b><p style="color: green;">Готово</p></b></td>
+                <td></td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+{%endblock%}

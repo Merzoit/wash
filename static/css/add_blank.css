@@ -1,0 +1,49 @@
+.box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20vh;
+}
+.left-side {
+    width: auto;
+    height: auto;
+}
+.left-side input {
+    width: auto;
+}
+
+.form-item__lab {
+    float: left;
+}
+
+.label-form {
+    width: 100px;
+    text-align: center;
+}
+.form-add {
+    height: 100%;
+    width: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+.right-side {
+    height: auto;
+    width: auto;
+}
+.footer-box {
+    width: 100px;
+    height: 100px;
+    float: none;
+}
+.btnn {
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+}
+.check {
+    margin-left: 70px;
+    margin-top: 5px;
+}

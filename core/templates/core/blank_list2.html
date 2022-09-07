@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static '/css/blank_list.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="filter-form-box">
+    <form action="{% url 'filter' %}" method="get" class="filter-form">
+    <select class="form-select" name="date">
+      {% for date in view.get_date %}
+        <option value="{{date.id}}">{{date.date}}</option>
+      {% endfor %}
+    </select>
+    <select class="form-select" name="man">
+        {% for man in view.get_washman %}
+          <option value="{{man.id}}">{{man.man}}</option>
+        {% endfor %}
+      </select>
+      <button type="sumbit">
+        Расчитать
+      </button>
+    </form>
+</div>
+<div class="wash-info">
+<ul class="list-group">
+    <li class="list-group-item list-group-item-success"><b>Количество моек:</b> {{api.wash_count}}</li>
+    <li class="list-group-item list-group-item-success"><b>Количество химчисток:</b> {{api.clean_count}}</li>
+    <li class="list-group-item list-group-item-success"><b>Общая сумма за смену:</b> {{api.full_money}}</li>
+    <li class="list-group-item list-group-item-success"><b>Заработок:</b> {{api.get_money}}</li>
+</ul>
+</div>
+<div class="wash-list">
+<table class="table">
+    <tbody>
+    {% for i in api.blank_list %}
+      <tr>
+        <td>{{i.wash_man}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.grz}}</td>
+        <td>{{i.wash_type}}</td>
+        <td>{{i.car_class}}</td>
+        <td>{{i.pay_type}}</td>
+        <td>{% if i.sale == NoNe %}Без скидки{% else %}{{i.sale}}{% endif %}</td>
+        <td>{{i.price}}</td>
+        <td>{% if i.super_clean%}Химчистка{% else %}-{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+<form id="update_data" method="post">
+  <div>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button form="update_data" type="submit">Сохранить</button>
+  </div>
+</form>

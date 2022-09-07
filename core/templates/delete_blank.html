@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+<style>
+    .delete-form {
+        width: 100%;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        padding-top: 200px;
+    }
+    .form-class {
+        width: 600px;
+        height: 300px;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+<div class="delete-form">
+    <form action="" method="post" class="form-class">
+        {% csrf_token %}
+        <b><p>Вы уверены что хотите удалить мойку?</p></b>
+        <table class="table table-list list-table">
+            <tr class="table-danger">
+                <td>{{blank.wash_man}}</td>
+                <td>{{blank.grz}}</td>
+                <td>{{blank.pay_type}}</td>
+                <td>{{blank.price}}</td>
+            </tr>
+        </table>
+        <input type="submit" value="Удалить" class="btn btn-dark"/>
+        <a type="button" class="btn btn-dark" href="{% url 'monitor_blank' %}">Отменить</a>
+    </form>
+</div>
+{% endblock content %}
