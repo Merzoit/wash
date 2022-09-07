@@ -1,115 +1,117 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block style %}
-<link rel="stylesheet" href="{% static '/css/add_blank.css' %}" />
+<link rel="stylesheet" href="{% static '/css/add_blank.css' %}"/>
 {% endblock %}
 {% block content %}
 <div class="box">
-    <form class="form-add" id="update_data" method="post">
-        {% csrf_token %}
-        <div class="left-side">
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="date" class="col-form-label label-form">Смена</label>
-                </div>
-                <div class="col-auto">
-                  {{form.date}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="grz" class="col-form-label label-form">ГРЗ ТС</label>
-                </div>
-                <div class="col-auto">
-                  {{form.grz}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="car_mark" class="col-form-label label-form">Марка</label>
-                </div>
-                <div class="col-auto">
-                  {{form.car_mark}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="car_class" class="col-form-label label-form">Класс авто</label>
-                </div>
-                <div class="col-auto">
-                  {{form.car_class}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="wash_man" class="col-form-label label-form">Мойщик</label>
-                </div>
-                <div class="col-auto">
-                  {{form.wash_man}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="wash_type" class="col-form-label label-form">Тип мойки</label>
-                </div>
-                <div class="col-auto">
-                  {{form.wash_type}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="pay_type" class="col-form-label label-form">Тип оплаты</label>
-                </div>
-                <div class="col-auto">
-                  {{form.pay_type}}
-                </div>
-            </div>
-            <div class="check">
-                <div class="form-check form-switch">
-                    {{form.super_clean}}
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Химчистка</label>
-                </div>
-                <div class="form-check form-switch">
-                    {{form.night_clean}}
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Ночная</label>
-                </div>
-                <div class="form-check form-switch">
-                    {{form.done_clean}}
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Готова</label>
-                </div>
-            </div>
+  <form class="form-add" id="update_data" method="post">
+    {% csrf_token %}
+    <div class="left-side">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="date" class="col-form-label label-form">Смена</label>
         </div>
-        <div class="right-side">
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                  <label for="service" class="col-form-label label-form">Услуги</label>
-                </div>
-                <div class="col-auto">
-                  {{form.service}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                <label for="sale" class="col-form-label label-form">Скидка</label>
-                </div>
-                <div class="col-auto">
-                {{form.sale}}
-                </div>
-            </div>
-            <div class="row g-3 align-items-center">
-                <div class="col-auto">
-                <label for="price" class="col-form-label label-form">Стоимость</label>
-                </div>
-                <div class="col-auto">
-                {{form.price}}
-                </div>
-            </div>
-            <div class="submit-wrapper">
-                <button form="update_data" type="submit" class="btn btn-dark filter-form-button btnn">
-                    Добавить мойку
-                </button>
-            </div>
+        <div class="col-auto">
+          {{ form.date }}
         </div>
-    </form>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="grz" class="col-form-label label-form">ГРЗ ТС</label>
+        </div>
+        <div class="col-auto">
+          {{ form.grz }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="car_mark" class="col-form-label label-form">Марка</label>
+        </div>
+        <div class="col-auto">
+          {{ form.car_mark }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="car_class" class="col-form-label label-form">Класс авто</label>
+        </div>
+        <div class="col-auto">
+          {{ form.car_class }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="wash_man" class="col-form-label label-form">Мойщик</label>
+        </div>
+        <div class="col-auto">
+          {{ form.wash_man }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="wash_type" class="col-form-label label-form">Тип мойки</label>
+        </div>
+        <div class="col-auto">
+          {{ form.wash_type }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="pay_type" class="col-form-label label-form">Тип оплаты</label>
+        </div>
+        <div class="col-auto">
+          {{ form.pay_type }}
+        </div>
+      </div>
+      <div class="check">
+        <div class="form-check form-switch">
+          {{ form.super_clean }}
+          <label class="form-check-label" for="flexSwitchCheckDefault">Химчистка</label>
+        </div>
+        <div class="form-check form-switch">
+          {{ form.night_clean }}
+          <label class="form-check-label" for="flexSwitchCheckDefault">Ночная</label>
+        </div>
+        <div class="form-check form-switch">
+          {{ form.done_clean }}
+          <label class="form-check-label" for="flexSwitchCheckDefault">Готова</label>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="service" class="col-form-label label-form">Услуги</label>
+        </div>
+        <div class="col-auto">
+          {{ form.service }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="sale" class="col-form-label label-form">Скидка</label>
+        </div>
+        <div class="col-auto">
+          {{ form.sale }}
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="price" class="col-form-label label-form">Стоимость</label>
+        </div>
+        <div class="col-auto">
+          {{ form.price }}
+        </div>
+      </div>
+      <div class="submit-wrapper">
+        <button form="update_data" type="submit" class="btn btn-dark filter-form-button btnn">
+          Добавить мойку
+        </button>
+      </div>
+    </div>
+  </form>
+  <button type="button" class="onValue">Клик</button>
 </div>
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
