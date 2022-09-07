@@ -9,6 +9,9 @@
 .left-side {
     width: auto;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .left-side input {
     width: auto;
@@ -28,8 +31,12 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    gap: 80px;
 }
 .right-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     height: auto;
     width: auto;
 }
@@ -44,6 +51,12 @@
     margin-top: 10px;
 }
 .check {
-    margin-left: 70px;
-    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+}
+
+.submit-wrapper {
+    padding-left: 30%;
+    width: 80%;
 }
