@@ -38,7 +38,7 @@ class LogoutView(LogoutView):
 
 
 class CreateBlankView(LoginRequiredMixin, ManDate, CreateView):
-    """Добавление бланка в бвзу моек"""
+    """Добавление бланка в базу моек"""
     login_url = 'login'
     redirect_field_name = 'redirect_to'
     template_name = 'add_blank.html'
