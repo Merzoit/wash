@@ -5,32 +5,32 @@ class Blank(models.Model):
     """Модель для создания объекта мойки"""
     #Related fields
     date = models.ForeignKey(
-        'Date', db_column='date', on_delete=models.SET_NULL,
-        blank=True, null=True, verbose_name="Дата",
+        'Date', db_column='date', default=0, on_delete=models.CASCADE,
+        verbose_name="Дата",
         )
     car_class = models.ForeignKey(
-        'Car_class', db_column='car_class', on_delete=models.SET_NULL, 
-        blank=True, null=True, verbose_name="Класс авто"
+        'Car_class', db_column='car_class', default=0, on_delete=models.CASCADE, 
+        verbose_name="Класс авто"
         )
     wash_type = models.ForeignKey(
-        'Wash_type', db_column='wash_type', on_delete=models.SET_NULL, 
-        blank=True, null=True, verbose_name="Тип мойки"
+        'Wash_type', db_column='wash_type', default=0, on_delete=models.CASCADE, 
+        verbose_name="Тип мойки"
         )
     wash_man = models.ForeignKey(
-        'Wash_man', db_column='wash_man', on_delete=models.SET_NULL,
-        blank=True, null=True, verbose_name="Мойщик"
+        'Wash_man', db_column='wash_man', default=0, on_delete=models.CASCADE,
+        verbose_name="Мойщик"
         )
     pay_type = models.ForeignKey(
-        'Pay', db_column='pay', on_delete=models.SET_NULL,
-        blank=True, null=True, verbose_name="Способ оплаты"
+        'Pay', db_column='pay', default=0, on_delete=models.CASCADE,
+        verbose_name="Способ оплаты"
         )
     service = models.ManyToManyField('Service', verbose_name="Услуги") 
     #Local fields
     time = models.TimeField(auto_now=True)
-    grz = models.CharField(max_length=9, blank=True, null=True, verbose_name="ГРЗ автомобиля")
-    car_mark = models.CharField(max_length=32, blank=True, null=True, verbose_name="Марка автомобиля")
-    price = models.IntegerField(blank=True, null=True, verbose_name="Цена")        
-    notes = models.TextField(max_length=360, blank=True, null=True, verbose_name="Примечания")
+    grz = models.CharField(max_length=9, default="", verbose_name="ГРЗ автомобиля")
+    car_mark = models.CharField(max_length=32, default="", verbose_name="Марка автомобиля")
+    price = models.IntegerField(default=0, verbose_name="Цена")        
+    notes = models.TextField(max_length=360, default="", verbose_name="Примечания")
     sale = models.IntegerField(default=0, verbose_name="Скидка")
     super_clean = models.BooleanField(default=False, verbose_name="Химчистка")
     night_clean = models.BooleanField(default=False, verbose_name="Ночная")

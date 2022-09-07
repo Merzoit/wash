@@ -58,7 +58,8 @@ function calculation(serviceValues) {
   const result = sum.reduce((previousValue, currentValue) => {
     return previousValue + currentValue
   }, 0)
-
+  console.log(result)
+  console.log(premiumElement.value)
   price.value = Number(result) + Number(premiumElement.value)
 }
 
